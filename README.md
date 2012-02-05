@@ -31,13 +31,13 @@ With the help of the toolkit, :
 
 You should know:  
 * web dir: `/home/wwwroot`  
-* to manage nginx: `/etc/init.d/nginx {start|stop|reload|restart|kill}` 
-* to manage uwsgi: `{start|stop|reload|restart|kill} uwsgi_emperor` 
-* to check nginx file: `/usr/local/nginx/sbin/nginx -t` 
+* to manage nginx: `/etc/init.d/nginx {start|stop|reload|restart|kill}`  
+* to manage uwsgi: `{start|stop|reload|restart|kill} uwsgi_emperor`  
+* to check nginx file: `/usr/local/nginx/sbin/nginx -t`  
 * Every time you change the uwsgi conf files (`/home/pyconf/uwsgiconf/*.{ini|xml|json|...}`), the related python apps should be reloaded automatically.  
-* Every time you change the nginx conf files or python project files, you have to reload or restart nginx and uwsgi_emperor by hands. 
+* Every time you change the nginx conf files or python project files, you have to reload or restart nginx and uwsgi_emperor by hands.  
 
-This toolkit is compatible with and modified from another amazing toolkit: [LNMP](http://lnmp.org). In fact, you can just run `./install_uwsgi.sh` after installing that toolkit. After that your VPS or your server can run both python apps and php apps. You can add a vhost running in php with `cd /root && ./vhost.sh`. Many files in this toolkit are directly taken from [LNMP package](http://soft.vpser.net/lnmp/lnmp0.8.tar.gz), some are modifed, and some are created by @fyears with the help of Internet.
+This toolkit is compatible with and modified from another amazing toolkit: [LNMP](http://lnmp.org). In fact, you can just run `./install_uwsgi.sh` after installing that toolkit. After that your VPS or your server can run both python apps and php apps. You can add a vhost running in php with `cd /root && sudo ./vhost.sh`. Many files in this toolkit are directly taken from [LNMP package](http://soft.vpser.net/lnmp/lnmp0.8.tar.gz), some are modifed, and some are created by @fyears with the help of Internet.
 
 
 Websites you may be interested in:  
