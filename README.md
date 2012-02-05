@@ -2,7 +2,7 @@ Welcome to use [PyDeployTool](https://github.com/fyears/PyDeployTool), a python 
 
 It's not quite easy to deploy python apps for freshmen in production. This toolkit would help.
 
-*But remember, ou are at your own risk if you decide to use this toolkit. The author @fyears doesn't take any responsible to your choice.* Well, the author are trying his best to avoid bugs, since he or she is using it as well.
+**But remember, you are at your own risk if you decide to use this toolkit. The author @fyears doesn't take any responsible to your choice.** Well, the author are trying his best to avoid bugs, since he or she is using it as well.
 
 [Nginx](http://nginx.org/en/) and [uWSGI](http://projects.unbit.it/uwsgi/wiki) are perfect to deploy python apps.
 
