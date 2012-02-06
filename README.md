@@ -4,7 +4,7 @@ It's not quite easy to deploy python apps for freshmen in production. This toolk
 
 **But remember, you are at your own risk if you decide to use this toolkit. The author @fyears is NOT responsible to your choice.** Well, the author are trying the best to avoid bugs, since he or she is using it as well. :-)
 
-**Now, this toolkit is for ubuntu only! Though you may use it in other
+**Now, this toolkit is for ubuntu only! Though you may use it in other system if you make some changes.**
 
 [Nginx](http://nginx.org/en/) and [uWSGI](http://projects.unbit.it/uwsgi/wiki) are perfect to deploy python apps.
 
