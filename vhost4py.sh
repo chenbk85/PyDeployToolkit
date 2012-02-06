@@ -172,16 +172,25 @@ eof
 
 cat >/home/pyconf/uwsgiconf/$domain.ini<<eof
 [uwsgi]
+; it's recommended to use domain.uwsgi.ini file to configure uWSGI because it's most readable and editable
+; it's recommended to run (for example) sudo chown www:www domain.uwsgi.ini after you change the file
 socket = /tmp/$domain.uwsgi.sock
-master = 1
+; using socket instead of tcp is recommended
+master = 1 
 threads = 40
 processes = 4
 pythonpath = /home/wwwroot/$domain/pyenv
+; the path to the virtualenv
 chdir = /home/wwwroot/$domain
+; the folder of your app
 module = appmainfile
+; the name of the main file or entrance for uwsgi of your app without .py
 callable = app
+; it's for Flask app
 uid = www
+; you should always set this if you use socket
 sid = www
+; you should always set this if you use socket
 eof
 chown www:www /home/pyconf/uwsgiconf/$domain.uwsgi.ini
 
