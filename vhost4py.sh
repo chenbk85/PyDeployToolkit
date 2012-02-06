@@ -157,8 +157,8 @@ pip install Flask
 deactivate
 
 cat >/home/wwwroot/$domain/appmainfile.py<<eof
-\#!/usr/bin/python
-\# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from flask import Flask
 app = Flask(__name__)
 @app.route('/')

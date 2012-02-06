@@ -4,6 +4,8 @@ It's not quite easy to deploy python apps for freshmen in production. This toolk
 
 **But remember, you are at your own risk if you decide to use this toolkit. The author @fyears is NOT responsible to your choice.** Well, the author are trying the best to avoid bugs, since he or she is using it as well. :-)
 
+**Now, this toolkit is for ubuntu only! Though you may use it in other
+
 [Nginx](http://nginx.org/en/) and [uWSGI](http://projects.unbit.it/uwsgi/wiki) are perfect to deploy python apps.
 
 To install them using this toolkit (you must be a root user or using `sudo`) when you are in the toolkit folder: 
@@ -24,7 +26,7 @@ The toolkit will do the following things:
 
 With the help of the toolkit, :  
 * You can configure the nginx conf file(s) you want in `/usr/local/nginx/conf`  
-* You can configure the uWSGI params with files, if you put all your uwsgi files in `/home/pyconf/uwsgiconf/`. (`uwsgi --emperor /home/pyconf/uwsgiconf --emperor-tyrant` will run on system boot.)  
+* You can configure the uWSGI params with files, if you put all your uwsgi files in `/home/pyconf/uwsgiconf/`. (`uwsgi --emperor /home/pyconf/uwsgiconf --emperor-tyrant` will run on system boot.)  If you use socket, you should always set `uid = www` and `gid = www`, and it's strongly recommended to run (for example) `sudo chown www:www yourdomainconf.ini` after you modify the file.
 * Every `/home/wwwroot/$domain/pyenv` folder created by `./vhost4py.sh` is a python virtualenv.  
 * You can easily upgrade nginx with `./upgrade_nginx.sh`.  
 * You can easily upgrade uWSGI because it's installd by running `sudo pip install uwsgi`.
