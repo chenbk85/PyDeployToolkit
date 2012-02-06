@@ -26,7 +26,7 @@ The toolkit will do the following things:
 
 With the help of the toolkit, :  
 * You can configure the nginx conf file(s) you want in `/usr/local/nginx/conf`  
-* You can configure the uWSGI params with files, if you put all your uwsgi files in `/home/pyconf/uwsgiconf/`. (`uwsgi --emperor /home/pyconf/uwsgiconf --emperor-tyrant` will run on system boot.)  If you use socket, you should always set `uid = www` and `gid = www`, and it's strongly recommended to run (for example) `sudo chown www:www yourdomainconf.ini` after you modify the file.
+* You can configure the uWSGI params with files, if you put all your uwsgi files in `/home/pyconf/uwsgiconf/`. (`uwsgi --emperor /home/pyconf/uwsgiconf --emperor-tyrant` will run on system boot.)  If you use socket, you should always set `uid = www` and `gid = www`, and it's strongly recommended to run (for example) `sudo chown www:www yourdomainconf.ini` after you modify the file.  
 * Every `/home/wwwroot/$domain/pyenv` folder created by `./vhost4py.sh` is a python virtualenv.  
 * You can easily upgrade nginx with `./upgrade_nginx.sh`.  
 * You can easily upgrade uWSGI because it's installd by running `sudo pip install uwsgi`.
