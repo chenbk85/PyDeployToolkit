@@ -129,6 +129,9 @@ server
 			include uwsgi_params;
 			uwsgi_pass unix:/tmp/$domain.uwsgi.sock;
 			}
+		location /static/ {
+			alias $vhostdir/static/;
+			}
 			
 		#location ~ .*\.(php|php5)?$
 		#	{
@@ -156,7 +159,7 @@ source $vhostdir/pyenv/bin/activate
 pip install Flask
 deactivate
 
-cat >/home/wwwroot/$domain/appmainfile.py<<eof
+cat >$vhostdir/appmainfile.py<<eof
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from flask import Flask
@@ -179,7 +182,7 @@ socket = /tmp/$domain.uwsgi.sock
 master = 1 
 threads = 40
 processes = 4
-pythonpath = /home/wwwroot/$domain/pyenv
+pythonpath = $vhostdir/pyenv
 ; the path to the virtualenv
 chdir = /home/wwwroot/$domain
 ; the folder of your app
