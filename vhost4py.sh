@@ -176,7 +176,7 @@ eof
 cat >/home/pyconf/uwsgiconf/$domain.ini<<eof
 [uwsgi]
 ; it's recommended to use domain.uwsgi.ini file to configure uWSGI because it's most readable and editable
-; it's recommended to run (for example) sudo chown www:www domain.uwsgi.ini after you change the file
+; it's recommended to run (for example) sudo chown www:www domain.uwsgi.ini after you change the file, though it's not necessary if you've set chmod-socket
 socket = /tmp/$domain.uwsgi.sock
 ; using socket instead of tcp is recommended
 master = 1 
@@ -190,10 +190,12 @@ module = appmainfile
 ; the name of the main file or entrance for uwsgi of your app without .py
 callable = app
 ; it's for Flask app
+chmod-socket = 666
+; you should always set this if you use socket, otherwise nginx can't connect the socket (unless you set uid & gid to www)
 uid = www
-; you should always set this if you use socket
+; you should always set this if you use socket, though it's not necessarily required if you've set chmod-socket
 sid = www
-; you should always set this if you use socket
+; you should always set this if you use socket, though it's not necessarily required if you've set chmod-socket
 eof
 chown www:www /home/pyconf/uwsgiconf/$domain.uwsgi.ini
 
