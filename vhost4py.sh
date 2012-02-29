@@ -131,6 +131,12 @@ server
 			}
 		location /static/ {
 			alias $vhostdir/static/;
+			try_files $uri @uwsgi;
+			}
+		
+		location @uwsgi {
+			include uwsgi_params;
+			uwsgi_pass unix:/tmp/www.fyears.org.uwsgi.sock;
 			}
 			
 		#location ~ .*\.(php|php5)?$
