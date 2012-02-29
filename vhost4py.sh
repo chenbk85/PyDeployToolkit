@@ -136,7 +136,7 @@ server
 		
 		location @uwsgi {
 			include uwsgi_params;
-			uwsgi_pass unix:/tmp/www.fyears.org.uwsgi.sock;
+			uwsgi_pass unix:/tmp/$domain.uwsgi.sock;
 			}
 			
 		#location ~ .*\.(php|php5)?$
