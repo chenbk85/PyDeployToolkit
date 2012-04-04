@@ -131,7 +131,7 @@ server
 			}
 		location /static/ {
 			alias $vhostdir/static/;
-			try_files $uri @uwsgi;
+			try_files \$uri @uwsgi;
 			}
 		
 		location @uwsgi {
