@@ -179,7 +179,7 @@ if __name__ == '__main__':
     app.run()
 eof
 
-cat >/home/pyconf/uwsgiconf/$domain.ini<<eof
+cat >/home/pyconf/uwsgiconf/$domain.uwsgi.ini<<eof
 [uwsgi]
 ; it's recommended to use domain.uwsgi.ini file to configure uWSGI because it's most readable and editable
 ; it's recommended to run (for example) sudo chown www:www domain.uwsgi.ini after you change the file, though it's not necessary if you've set chmod-socket
