@@ -188,7 +188,7 @@ socket = /tmp/$domain.uwsgi.sock
 master = 1 
 threads = 40
 processes = 4
-pythonpath = $vhostdir/pyenv
+virtualenv = $vhostdir/pyenv
 ; the path to the virtualenv
 chdir = /home/wwwroot/$domain
 ; the folder of your app
@@ -202,6 +202,8 @@ uid = www
 ; you should always set this if you use socket, though it's not necessarily required if you've set chmod-socket
 sid = www
 ; you should always set this if you use socket, though it's not necessarily required if you've set chmod-socket
+limit-as 256
+; it's recommended to set a limit memory usage
 eof
 chown www:www /home/pyconf/uwsgiconf/$domain.uwsgi.ini
 

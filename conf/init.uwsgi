@@ -5,5 +5,4 @@ stop on runlevel [!2345]
 
 respawn
 exec uwsgi \
---emperor /home/pyconf/uwsgiconf/ \
---emperor-tyrant
+--emperor /home/pyconf/uwsgiconf/
