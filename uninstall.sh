@@ -33,7 +33,7 @@ rm /root/lnmp
 
 stop uwsgi_emperor
 rm -rf /etc/init/uwsgi_emperor.conf
-pip uninstall uwsgi
+pip uninstall -y uwsgi
 rm -rf /usr/local/bin/uwsgi
 
 echo "Nginx + uwsgi Uninstall completed."

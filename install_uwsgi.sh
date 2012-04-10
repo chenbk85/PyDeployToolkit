@@ -47,16 +47,18 @@ apt-get update
 apt-get update
 apt-get autoremove -y
 
-apt-get install -y build-essential psmisc python-dev python-all-dev libxml2 libxml2-dev python-setuptools python-pip libev-dev libevent-dev
+apt-get install -y build-essential curl psmisc python-dev python-all-dev libxml2 libxml2-dev libev-dev libevent-dev
 
-pip install --upgrade pip
+echo "========================== pip install ==============================="
+curl http://python-distribute.org/distribute_setup.py | python
+curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python
+pip install -U virtualenv
 
 echo "========================== uwsgi install ==============================="
 #groupadd www
 #useradd -s /sbin/nologin -g www www
-UWSGI_PROFILE=gevent pip install uwsgi
-pip install virtualenv
-pip install http://www.gevent.org/dist/gevent-1.0dev.tar.gz  # to support uwsgi
+UWSGI_PROFILE=gevent pip install -U uwsgi
+pip install -U http://www.gevent.org/dist/gevent-1.0dev.tar.gz  # to support uwsgi
 
 mkdir -p /home/pyconf/uwsgiconf
 chown -R www:www /home/pyconf/uwsgiconf
@@ -71,7 +73,7 @@ cp conf/init.uwsgi /etc/init/uwsgi_emperor.conf
 
 cd $cur_dir
 cp vhost4py.sh /root/vhost4py.sh
-chmod c+x /root/vhost4py.sh
+chmod +x /root/vhost4py.sh
 
 start uwsgi_emperor
 /etc/init.d/nginx restart

@@ -121,6 +121,8 @@ else
 fi
 
 ulimit -v unlimited
+sysctl -w net.core.somaxconn="32768"
+sysctl -w net.core.netdev_max_backlog="32768"
 
 if [ ! `grep -l "/lib"    '/etc/ld.so.conf'` ]; then
 	echo "/lib" >> /etc/ld.so.conf
