@@ -73,18 +73,25 @@ apt-get install -y libpcre3-dev build-essential libssl-dev
 
 echo "============================check files=================================="
 
-if [ -s pcre-8.12.tar.gz ]; then
-  echo "pcre-8.12.tar.gz [found]"
+if [ -s pcre-8.30.tar.gz ]; then
+  echo "pcre-8.30.tar.gz [found]"
   else
-  echo "Error: pcre-8.12.tar.gz not found!!!download now......"
-wget -c http://soft.vpser.net/web/pcre/pcre-8.12.tar.gz
+  echo "Error: pcre-8.30.tar.gz not found!!!download now......"
+wget -c http://sourceforge.net/projects/pcre/files/pcre/8.30/pcre-8.30.tar.gz/download
 fi
 
-if [ -s nginx-1.0.10.tar.gz ]; then
-  echo "nginx-1.0.10.tar.gz [found]"
+if [ -s nginx-1.0.14.tar.gz ]; then
+  echo "nginx-1.0.14.tar.gz [found]"
   else
-  echo "Error: nginx-1.0.10.tar.gz not found!!!download now......"
-  wget -c http://soft.vpser.net/web/nginx/nginx-1.0.10.tar.gz
+  echo "Error: nginx-1.0.14.tar.gz not found!!!download now......"
+  wget -c http://nginx.org/download/nginx-1.0.14.tar.gz
+fi
+
+if [ -s libmcrypt-2.5.8.tar.gz ]; then
+  echo "libmcrypt-2.5.8.tar.gz [found]"
+  else
+  echo "Error: libmcrypt-2.5.8.tar.gz not found!!!download now......"
+  wget -c  http://sourceforge.net/projects/mcrypt/files/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz/download
 fi
 
 echo "============================check files=================================="
@@ -161,14 +168,14 @@ cp conf/php-fpm.conf /usr/local/php/etc/php-fpm.conf
 
 # nginx
 cd $cur_dir
-tar zxvf pcre-8.12.tar.gz
-cd pcre-8.12/
+tar zxvf pcre-8.30.tar.gz
+cd pcre-8.30/
 ./configure
 make && make install
 cd ../
 
-tar zxvf nginx-1.0.10.tar.gz
-cd nginx-1.0.10/
+tar zxvf nginx-1.0.14.tar.gz
+cd nginx-1.0.14/
 ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6
 make && make install
 cd ../

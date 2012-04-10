@@ -12,7 +12,7 @@ fi
 if [ -s /usr/local/nginx ]; then
   echo "/usr/local/nginx [found]"
   else
-  echo "Error: /usr/local/nginx not found!!! You should run ./install_nginx.sh first."
+  echo "Error: /usr/local/nginx not found!!! You should run sh install_nginx.sh first."
   exit 1
 fi
 
@@ -27,19 +27,6 @@ echo "========================================================================="
 cur_dir=$(pwd)
 
 if [ "$1" != "--help" ]; then
-
-
-#set main domain name
-
-	domain="www.lnmp.org"
-	echo "Please input domain:"
-	read -p "(Default domain: www.lnmp.org):" domain
-	if [ "$domain" = "" ]; then
-		domain="www.lnmp.org"
-	fi
-	echo "==========================="
-	echo "domain=$domain"
-	echo "==========================="
 
 	get_char()
 	{
@@ -60,13 +47,16 @@ apt-get update
 apt-get update
 apt-get autoremove -y
 
-apt-get install -y build-essential psmisc python-dev libxml2 libxml2-dev python-setuptools python-pip
+apt-get install -y build-essential psmisc python-dev python-all-dev libxml2 libxml2-dev python-setuptools python-pip libev-dev libevent-dev
+
+pip install --upgrade pip
 
 echo "========================== uwsgi install ==============================="
 #groupadd www
 #useradd -s /sbin/nologin -g www www
-pip install uwsgi
+UWSGI_PROFILE=gevent pip install uwsgi
 pip install virtualenv
+pip install http://www.gevent.org/dist/gevent-1.0dev.tar.gz  # to support uwsgi
 
 mkdir -p /home/pyconf/uwsgiconf
 chown -R www:www /home/pyconf/uwsgiconf
@@ -81,7 +71,7 @@ cp conf/init.uwsgi /etc/init/uwsgi_emperor.conf
 
 cd $cur_dir
 cp vhost4py.sh /root/vhost4py.sh
-chmod +x /root/vhost4py.sh
+chmod c+x /root/vhost4py.sh
 
 start uwsgi_emperor
 /etc/init.d/nginx restart

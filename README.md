@@ -11,13 +11,12 @@ It's not quite easy to deploy python apps for freshmen in production. This toolk
 To install them using this toolkit (you must be a root user or using `sudo`) when you are in the toolkit folder: 
 `git clone git@github.com:fyears/PyDeployToolkit.git`  
 `cd PyDeployToolkit/`   
-`./install_nginx.sh`   
-`./install_uwsgi.sh`  
+`sh install_nginx.sh`   
+`sh install_uwsgi.sh`  
 You must install nginx before uWSGI.
 
 When you want to add a virtualhost (you must be a root user or using `sudo`):  
-`cd /root`  
-`./vhost4py.sh`  
+`sh /root/vhost4py.sh`  
 
 The toolkit will do the following things:  
 * Install nginx and add the init file  

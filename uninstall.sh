@@ -31,6 +31,11 @@ rm -rf /usr/local/nginx
 rm /root/vhost4py.sh
 rm /root/lnmp
 
+stop uwsgi_emperor
+rm -rf /etc/init/uwsgi_emperor.conf
+pip uninstall uwsgi
+rm -rf /usr/local/bin/uwsgi
+
 echo "Nginx + uwsgi Uninstall completed."
 
 echo "========================================================================="
