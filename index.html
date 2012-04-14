@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="PyDeployToolkit : A toolkit to help you deploy python apps with nginx and uWSGI." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>PyDeployToolkit</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/fyears/PyDeployToolkit">Fork Me on GitHub</a>
+
+          <h1 id="project_title">PyDeployToolkit</h1>
+          <h2 id="project_tagline">A toolkit to help you deploy python apps with nginx and uWSGI.</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/fyears/PyDeployToolkit/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/fyears/PyDeployToolkit/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Welcome to use <a href="https://github.com/fyears/PyDeployToolkit">PyDeployToolkit</a>, a python apps deployment toolkit.</p>
+
+<p>It's not quite easy to deploy python apps for freshmen in production. This toolkit would help.</p>
+
+<p><strong>But remember, you are at your own risk if you decide to use this toolkit. The author <a href="https://github.com/fyears" class="user-mention">@fyears</a> is NOT responsible to your choice.</strong> Well, the author are trying the best to avoid bugs, since he or she is using it as well. :-)</p>
+
+<p><strong>Now, this toolkit is for ubuntu only! Though you may use it in other system if you make some changes.</strong></p>
+
+<p><a href="http://nginx.org/en/">Nginx</a> and <a href="http://projects.unbit.it/uwsgi/wiki">uWSGI</a> are perfect to deploy python apps.</p>
+
+<p>To install them using this toolkit (you must be a root user or using <code>sudo</code>) when you are in the toolkit folder: 
+<code>git clone git@github.com:fyears/PyDeployToolkit.git</code><br><code>cd PyDeployToolkit/</code><br><code>sh install_nginx.sh</code><br><code>sh install_uwsgi.sh</code><br>
+You must install nginx before uWSGI.</p>
+
+<p>When you want to add a virtualhost (you must be a root user or using <code>sudo</code>):<br><code>sh /root/vhost4py.sh</code>  </p>
+
+<p>The toolkit will do the following things:<br>
+* Install nginx and add the init file<br>
+* Install uWSGI and add the init file<br>
+* Simplify the steps to add a new virtualhost  </p>
+
+<p>With the help of the toolkit, :<br>
+* You can configure the nginx conf file(s) you want in <code>/usr/local/nginx/conf</code><br>
+* You can configure the uWSGI params with files, if you put all your uwsgi files in <code>/home/pyconf/uwsgiconf/</code>. (<code>uwsgi --emperor /home/pyconf/uwsgiconf --emperor-tyrant</code> will run on system boot.)  If you use socket, you should always set <code>uid = www</code> and <code>gid = www</code>, and it's strongly recommended to run (for example) <code>sudo chown www:www yourdomainconf.ini</code> after you modify the file.<br>
+* Every <code>/home/wwwroot/$domain/pyenv</code> folder created by <code>./vhost4py.sh</code> is a python virtualenv.<br>
+* You can easily upgrade nginx with <code>./upgrade_nginx.sh</code>.<br>
+* You can easily upgrade uWSGI because it's installd by running <code>sudo pip install uwsgi</code>.</p>
+
+<p>You should know:<br>
+* web dir: <code>/home/wwwroot</code><br>
+* to manage nginx: <code>/etc/init.d/nginx {start|stop|reload|restart|kill}</code><br>
+* to manage uwsgi: <code>{start|stop|reload|restart|kill} uwsgi_emperor</code><br>
+* to check nginx file: <code>/usr/local/nginx/sbin/nginx -t</code><br>
+* Every time you change the uwsgi conf files (<code>/home/pyconf/uwsgiconf/*.{ini|xml|json|...}</code>), the related python apps should be reloaded automatically.<br>
+* Every time you change the nginx conf files or python project files, you have to reload or restart nginx and uwsgi_emperor by hands.  </p>
+
+<p>This toolkit is compatible with and modified from another amazing toolkit: <a href="http://lnmp.org">LNMP</a>. In fact, you can just run <code>./install_uwsgi.sh</code> after installing that toolkit. After that your VPS or your server can run both python apps and php apps. You can add a vhost running in php with <code>cd /root &amp;&amp; sudo ./vhost.sh</code>. Many files in this toolkit are directly taken from <a href="http://soft.vpser.net/lnmp/lnmp0.8.tar.gz">LNMP package</a>, some are modifed, and some are created by <a href="https://github.com/fyears" class="user-mention">@fyears</a> with the help of Internet.</p>
+
+<p>Websites you may be interested in:<br>
+* <a href="http://nginx.org/en/">Nginx</a><br>
+* <a href="http://projects.unbit.it/uwsgi/wiki">uWSGI</a><br>
+* <a href="http://lnmp.org">LNMP</a><br>
+* <a href="https://github.com/fyears/PyDeployToolkit">PyDeployToolkit</a>  </p>
+
+<p>To find the author of this python apps deployment toolkit:<br>
+* <a href="http://www.fyears.org/">Fleeting Years // 流年</a><br>
+* <a href="http://twitter.com/fyears">@fyears</a>  </p>
+
+<p>"Fork it" and "send pull request" are warmly welcome.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">PyDeployToolkit maintained by <a href="https://github.com/fyears">fyears</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
