@@ -1,4 +1,4 @@
-Welcome to use [PyDeployTool](https://github.com/fyears/PyDeployTool), a python apps deployment toolkit.
+Welcome to use [PyDeployToolkit](https://github.com/fyears/PyDeployToolkit), a python apps deployment toolkit.
 
 It's not quite easy to deploy python apps for freshmen in production. This toolkit would help.
 
