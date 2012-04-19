@@ -42,8 +42,7 @@ if [ "$1" != "--help" ]; then
 	echo "Press any key to start..."
 	char=`get_char`
 
-apt-get update
-
+apt-get remove -y python-pip python-setuptools
 apt-get update
 apt-get autoremove -y
 
@@ -58,7 +57,8 @@ echo "========================== uwsgi install ==============================="
 #groupadd www
 #useradd -s /sbin/nologin -g www www
 UWSGI_PROFILE=gevent pip install -U uwsgi
-pip install -U http://www.gevent.org/dist/gevent-1.0dev.tar.gz  # to support uwsgi
+pip install -U http://www.gevent.org/dist/gevent-1.0b2.tar.gz#md5=dead736753e6d0c780e1295915d9f5b1  # to support uwsgi
+pip install -U gevent-websocket gevent-socketio
 
 mkdir -p /home/pyconf/uwsgiconf
 chown -R www:www /home/pyconf/uwsgiconf

@@ -71,10 +71,12 @@ if [ -s nginx-$nginx_version.tar.gz ]; then
 fi
 echo "============================check files=================================="
 rm -rf nginx-$nginx_version/
-
+rm -rf nginx_tcp_proxy_module/
 tar zxvf nginx-$nginx_version.tar.gz
+git clone https://github.com/yaoweibin/nginx_tcp_proxy_module.git
 cd nginx-$nginx_version/
-./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6
+patch -p1 < ../nginx_tcp_proxy_module/tcp.patch
+./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --add-module=../nginx_tcp_proxy_module/
 make
 
 mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.old
